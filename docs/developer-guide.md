@@ -268,6 +268,22 @@ python ../Firmware/interface_generator_stub.py --definitions ../Firmware/odrive-
 bundle exec jekyll serve --incremental --host=0.0.0.0
 ```
 
+## Proprietary Content
+
+This repository includes certain files that are not open source and are transparently encrypted. If you are eligible to get access to these files, do this:
+
+ 1. Install git-crypt
+    - **Ubuntu:** `sudo apt-get install git-crypt`
+    - **Arch Linux:** `sudo pacman -S git-crypt`
+    - **macOS:** `brew install git-crypt`
+    - **Windows:** [Here's the source](https://github.com/AGWA/git-crypt). Good Luck.
+
+ 2. Ask someone who already has access to run `git-crypt export-key >(base64)` and send you the output.
+ 3. Paste the output into the file `/tmp/odrive.key`.
+ 4. Run `git-crypt unlock <(cat /tmp/odrive.key | base64 -d)`
+
+The set of files that are encrypted is controlled by `.gitattributes`.
+
 ## Releases
 
 We use GitHub Releases to provide firmware releases.
